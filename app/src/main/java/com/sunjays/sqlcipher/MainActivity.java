@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         database = helper.getWritableDatabase("password");
 
         btnInsert.setOnClickListener(this);
+        btnQuery.setOnClickListener(this);
     }
 
     private void setViews() {
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String name = cursor.getString(cursor.getColumnIndex("name"));
                 int pages = cursor.getInt(cursor.getColumnIndex("pages"));
                 Log.d("TAG", name+pages);
+                tv.append("name:"+name+","+pages);
             }
         }
         cursor.close();
